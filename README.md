@@ -1,29 +1,40 @@
-# Django ORM Web Application
+DESIGN STEPS
+STEP 1:
+An Django application is created inside dataproject folder.
 
-## AIM
-To develop a Django application to store and retrieve data from a database using Object Relational Mapping(ORM).
+STEP 2:
+A python program is written to create a table to store and retrieve data.
 
-## Entity Relationship Diagram
+STEP 3:
+The table is created with 6 fields in which the username field is made as PrimaryKey.
 
-Include your ER diagram here
+STEP 4:
+Then the project files migrated. A superuser is also created.
 
-## DESIGN STEPS
+STEP 5:
+Now the server side program is executed .
 
-### STEP 1:
+STEP 6:
+The admin page of our website is accessed using username and password.
 
-### STEP 2:
+STEP 7:
+Records are added and saved in the table inside the database.
 
-### STEP 3:
+PROGRAM
+from django.db import models
+from django.contrib import admin
+class GitDatabase(models.Model):
+    username_primary_key = models.CharField(max_length=30, help_text="User name must be unique", primary_key=True,unique=True)
+    password = models.CharField(max_length=30)
+    firstname = models.CharField(max_length=20)
+    lastname = models.CharField(max_length=20)
+    profile_photo = models.ImageField()
+    email = models.EmailField(max_length=50,unique=True)
+class GitAdmin(admin.ModelAdmin):
+    list_display = ('username_primary_key', 'password', 'firstname', 'lastname','profile_photo','email')
+OUTPUT
+![Screenshot (31)](https://github.com/vtgvasanth/django-orm-app/assets/128463280/229d0234-cc21-42a1-afb5-892c6a82df8b)
 
-Write your own steps
 
-## PROGRAM
-
-Include your code here
-
-## OUTPUT
-
-Include the screenshot of your admin page.
-
-
-## RESULT
+RESULT
+Thus a Django application is successfully developed to store and retrieve data from a database using Object Relational Mapping(ORM)
